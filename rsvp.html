@@ -139,6 +139,42 @@
 								<p>Kindly respond by March 28, 2016. We look forward to celebrating with you!</p>								
 							</div>
 							<div class="col-sm-8">
+								Hide   Copy Code
+								<input id="Emaila" name="Email"
+									   type="text"  placeholder="Email Address">
+								<input id="First" name="First"
+									   type="text"  placeholder="First Name">
+								<input id="Last" name="Last"
+									   type="text"  placeholder="Last Name">
+								<input id="Company" name="Company"
+									   type="text" placeholder="Company">
+								<button id="ButtonSubmit" onclick="postContactToGoogle()"
+										type="button" >Send</button>
+
+								<script>
+									function postContactToGoogle() {
+										var email = $('#Emaila').val();
+										var first = $('#First').val();
+										var last = $('#Last').val();
+										var company = $('#Company').val();
+
+										$.ajax({
+											url: "https://docs.google.com/forms/d/1ClVC7MrEs0xmJFDFc3PJ7amr7TyoGb3ZYQc0BM1nTHU/formResponse",
+											data: { "entry_1994697053": email,
+												"entry_1688226212": first },
+											type: "POST",
+											dataType: "xml",
+											statusCode: {
+												0: function (e) {
+													console.log(0,e)
+												},
+												200: function (e) {
+													console.log(200,e)
+												}
+											}
+										});
+									}
+								</script>
 
 								<!-- Contact Form -->
 								<form id="contactForm"> 
