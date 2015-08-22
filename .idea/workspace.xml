@@ -2,42 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7f4e202-63ad-416d-9aec-0fdce9c86171" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\contact-form.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\class.phpmailer.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\class.pop3.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\class.smtp.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\extras\class.html2text.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\extras\htmlfilter.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\extras\ntlm_sasl_client.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-ar.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-br.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-ca.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-ch.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-cz.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-de.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-dk.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-eo.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-es.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-et.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-fi.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-fo.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-fr.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-he.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-hu.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-it.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-ja.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-nl.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-no.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-pl.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-ro.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-ru.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-se.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-sk.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-tr.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-zh.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\code\21gigawatts.github.io\php\php-mailer\language\phpmailer.lang-zh_cn.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rehearsal.html" afterPath="$PROJECT_DIR$/rehearsal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rsvp.html" afterPath="$PROJECT_DIR$/rsvp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="21gigawatts.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rsvp.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rsvp.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rsvp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.77907">
-              <caret line="364" column="16" selection-start-line="364" selection-start-column="16" selection-end-line="364" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.48815462">
+              <caret line="434" column="38" selection-start-line="434" selection-start-column="38" selection-end-line="434" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#p#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#5;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -137,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rehearsal.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rehearsal.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rehearsal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46358454">
-              <caret line="205" column="42" selection-start-line="205" selection-start-column="42" selection-end-line="205" selection-end-column="42" />
+            <state vertical-scroll-proportion="-11.265625">
+              <caret line="797" column="0" selection-start-line="361" selection-start-column="17" selection-end-line="798" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -196,8 +162,9 @@
         <option value="$PROJECT_DIR$/about.html" />
         <option value="$PROJECT_DIR$/vendor/bootstrap/angular-bootstrap.js" />
         <option value="$PROJECT_DIR$/vendor/angular-bootstrap.js" />
-        <option value="$PROJECT_DIR$/rsvp.html" />
         <option value="$PROJECT_DIR$/rehersal.html" />
+        <option value="$PROJECT_DIR$/rehearsal.html" />
+        <option value="$PROJECT_DIR$/rsvp.html" />
       </list>
     </option>
   </component>
@@ -610,10 +577,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rehearsal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.265625">
+          <caret line="797" column="0" selection-start-line="361" selection-start-column="17" selection-end-line="798" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rsvp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.77907">
-          <caret line="364" column="16" selection-start-line="364" selection-start-column="16" selection-end-line="364" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.48815462">
+          <caret line="434" column="38" selection-start-line="434" selection-start-column="38" selection-end-line="434" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#a#0;n#p#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#5;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -630,14 +605,6 @@
             <element signature="n#style#0;n#label#2;n#div#1;n#div#0;n#div#4;n#div#8;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#9;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rehearsal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46358454">
-          <caret line="205" column="42" selection-start-line="205" selection-start-column="42" selection-end-line="205" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
