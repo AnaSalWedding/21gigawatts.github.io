@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="home">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,7 +66,7 @@
 
 <!-- Main Content
 ================================================== -->
-<div id="body" class="viewport animated">
+<div id="body" class="viewport animated" ng-controller="homeCtrl">
     <div class="container">
         <div class="boxed-content">
             <!-- Header -->
@@ -134,7 +134,7 @@
                 </div>
                 <!-- /home-logo -->
                 <!-- Countdown container -->
-                <div class="row">
+                <div class="row" ng-if="happening=='before'">
                     <div class="countdown-container">
                         <!-- icon -->
                         <div class="countdown-icon">
@@ -152,7 +152,62 @@
                         </div>
                         <!-- /countdown -->
                         <!-- countdown title bot -->
-                        <h3 class="countdown-title countdown-title2"><span class="countdown-title-borders">Until we get Married!</span></h3>
+                        <h3 class="countdown-title countdown-title2">
+                            <span class="countdown-title-borders">Until we get Married!</span></h3>
+                        <!-- countdown title /bot -->
+                    </div>
+                </div>
+
+                <div class="row" ng-if="happening=='wedding'">
+                    <div class="countdown-container">
+                        <!-- icon -->
+                        <div class="countdown-icon">
+                            <img src="img/ico-heart2.png" alt="">
+                        </div>
+                        <!-- /icon -->
+                        <!-- countdown title top -->
+                        <h2 class="countdown-title countdown-title1"><span class="countdown-title-borders">October 21st, 2015 in Scottsdale, AZ</span></h2>
+                        <!-- /countdown title top -->
+                        <!-- countdown ( Edit it on main.js )-->
+                        <div class="row">
+                            <div class="col-xs-8 col-xs-offset-2">
+                                <center>
+                                    <h2>
+                                        Wedding is happening now!<br><br>
+                                        <iframe src="http://livestream.com/accounts/2053801/events/4093660/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"></iframe>
+                                    </h2>
+                                </center>
+                            </div>
+                        </div>
+                        <!-- /countdown -->
+                        <!-- countdown title bot -->
+
+                        <!-- countdown title /bot -->
+                    </div>
+                </div>
+                <div class="row" ng-if="happening=='after'">
+                    <div class="countdown-container">
+                        <!-- icon -->
+                        <div class="countdown-icon">
+                            <img src="img/ico-heart2.png" alt="">
+                        </div>
+                        <!-- /icon -->
+                        <!-- countdown title top -->
+                        <h2 class="countdown-title countdown-title1"><span class="countdown-title-borders">October 21st, 2015 in Scottsdale, AZ</span></h2>
+                        <!-- /countdown title top -->
+                        <!-- countdown ( Edit it on main.js )-->
+                        <div class="row">
+                            <div class="col-xs-8 col-xs-offset-2">
+                                <center>
+                                    <h2>
+                                        The wedding has come and gone but the memories last forever, especially through technology! <br>Check out the live stream below!<br><br>
+                                        <iframe src="http://livestream.com/accounts/2053801/events/4093660/player?width=560&height=315&autoPlay=true&mute=false" width="560" height="315" frameborder="0" scrolling="no"></iframe>
+                                    </h2>
+                                </center>
+                            </div>
+                        </div>
+                        <!-- /countdown -->
+                        <!-- countdown title bot -->
                         <!-- countdown title /bot -->
                     </div>
                 </div>
@@ -163,7 +218,7 @@
             <footer id="footer">
                 <p class="footer-icon"><img src="img/ft-icon.png" alt=""></p>
 
-                <p class="quote-content">Roads... Where we're going we don't need.... Roads.</p>
+                <p class="quote-content">Roads? Where we're going we don't need.... Roads.</p>
 
                 <p class="quote-author"></p>
             </footer>
@@ -208,6 +263,36 @@
 <script src="vendor/html5shiv.js"></script>
 <script src="vendor/respond.min.js"></script>
 <![endif]-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="vendor/angular-bootstrap.js"></script>
+<script type="text/javascript">
+
+    var app = angular.module('home', []).controller('homeCtrl', function ($scope) {
+        var weddingDate = new Date(Date.parse("Wed, 21 Oct 2015 23:19:00 GMT"));
+        var dayAfterWedding = new Date(Date.parse("Wed, 22 Oct 2015 08:00:00 GMT"));
+        $scope.happening = 'before';
+
+        if (new Date() > weddingDate) {
+            $scope.happening = 'wedding';
+        }
+
+        if (new Date() > dayAfterWedding) {
+            $scope.happening = 'after';
+        }
+
+    }).
+            directive('forNext', function () {
+                return {
+                    link: function (s, e, a) {
+                        var rand = 'name' + Math.random() * 100000;
+                        e.attr('for', rand);
+                        e.next().attr('id', rand);
+                    }
+                };
+            })
+</script>
+
 <!-- >> /JS
 ============================================================================= -->
 </body>

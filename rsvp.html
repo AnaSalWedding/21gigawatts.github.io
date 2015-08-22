@@ -159,7 +159,7 @@
                                 <div id="contactForm" ng-if="model.step==3">
                                     <!-- Form Field -->
                                     <div class="form-group">
-                                        <label>Thank you for RSVPing for our wedding. We look forward to seeing you!</label>
+                                        <label>Thank you for RSVPing for our wedding. <span ng-if="model.willAttend">We look forward to seeing you!</span><span ng-if="!model.willAttend"><br>We are sorry you can't make it, but you can still catch the reception <a href="http://livestream.com/WeddingWedcast/ana-sal-wedding">LIVE</a> on the big day!   Please <a href="mailto:anasalwedding2015@gmail.com">Email Us</a> if you have any questions! </span></label>
                                     </div>
                                 </div>
                                 <style>
@@ -192,73 +192,51 @@
                                         <label for-next>Name</label>
                                         <input type="text" disabled ng-model="model.form.name" class="form-control " placeholder="Name"/>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for-next>Your Email</label>
-                                        <input type="text" ng-model="model.form.email" class="form-control " placeholder="Email"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for-next>Over 21?</label>
-                                        <input type="checkbox" ng-model="model.form.isOver21"/>
-                                    </div>
-                                    <div class="form-group" ng-if="!model.form.isOver21">
-                                        <label for-next>Age</label>
-                                        <input type="number" min="0" max="20" class="form-control " ng-model="model.form.age" placeholder="Age"/>
-                                    </div>
-                                    <div class="form-group" ng-if="model.form.canAllowSpecialMeals">
-                                        <label for-next>Dietary Restrictions?</label>
-                                        <input type="checkbox" ng-model="model.form.isSpecialMeal"/>
-                                    </div>
-                                    <div class="form-group" ng-if="!model.form.isSpecialMeal">
                                         <div class="row">
-                                            <div ng-click="model.form.mealChoice='chicken'" class="col-sm-5 food-option" ng-class="{'highlight-border':model.form.mealChoice=='chicken'}">
-                                                <label style="font-weight: 900;">Chicken Saltimbocca</label>
-                                                <br>
-                                                <label style="font-size:.7em">French Chicken Breast with Prosciutto, Mozzarella & fresh Sage, Balsamic reduction</label>
-                                                <label style="font-size:.7em">Yukon Gold Mashed Potatoes & Seasonal Vegetable</label>
+                                            <div class="col-md-6" style="text-align: center;">
+                                                <label for-next>Yes, of course I will be attending!</label>
+                                                <input type="radio" ng-value="true" ng-model="model.willAttend" name="attend" class="form-control "/>
                                             </div>
-                                            <div ng-click="model.form.mealChoice='fish'" class="col-sm-5 food-option" ng-class="{'highlight-border':model.form.mealChoice=='fish'}">
-                                                <label style="font-weight: 900;">Pan-Seared Salmon</label>
-                                                <br>
-                                                <label style="font-size:.7em">Prepared with Herb Butter</label>
-                                                <label style="font-size:.7em">Green Chile Cheddar Mashed Potatoes & Seasonal Vegetable</label>
+
+                                            <div class="col-md-6" style="text-align: center;">
+                                                <label for-next>No, but I have a really good excuse.</label>
+                                                <input type="radio" ng-value="false" ng-model="model.willAttend" name="attend" class="form-control "/>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" ng-if="model.form.isSpecialMeal">
-                                        <label for-next>Please describe the dietary restriction</label>
-                                        <textarea ng-model="model.form.mealChoice" class="form-control "></textarea>
-                                    </div>
+
                                     <div class="form-group">
                                         <label for-next>Message to us! (optional)</label>
                                         <textarea class="form-control" ng-model="model.form.message" placeholder="Message"></textarea>
                                     </div>
-
-                                    <div ng-repeat="guest in model.form.guests" class="guest">
+                                    <div ng-if="model.willAttend==true">
                                         <div class="form-group">
-                                            <label for-next>Guest Name</label>
-                                            <input type="text" ng-model="guest.name" class="form-control " placeholder="Name"/>
+                                            <label for-next>Your Email</label>
+                                            <input type="text" ng-model="model.form.email" class="form-control " placeholder="Email"/>
                                         </div>
                                         <div class="form-group">
                                             <label for-next>Over 21?</label>
-                                            <input type="checkbox" ng-model="guest.isOver21"/>
+                                            <input type="checkbox" ng-model="model.form.isOver21"/>
                                         </div>
-                                        <div class="form-group" ng-if="!guest.isOver21">
+                                        <div class="form-group" ng-if="!model.form.isOver21">
                                             <label for-next>Age</label>
-                                            <input type="number" min="0" max="20" class="form-control " ng-model="guest.age"/>
+                                            <input type="number" min="0" max="20" class="form-control " ng-model="model.form.age" placeholder="Age"/>
                                         </div>
                                         <div class="form-group" ng-if="model.form.canAllowSpecialMeals">
                                             <label for-next>Dietary Restrictions?</label>
-                                            <input type="checkbox" ng-model="guest.isSpecialMeal"/>
+                                            <input type="checkbox" ng-model="model.form.isSpecialMeal"/>
                                         </div>
-                                        <div class="form-group" ng-if="!guest.isSpecialMeal">
+                                        <div class="form-group" ng-if="!model.form.isSpecialMeal">
                                             <div class="row">
-                                                <div ng-click="guest.mealChoice='chicken'" class="col-sm-5 food-option" ng-class="{'highlight-border':guest.mealChoice=='chicken'}">
+                                                <div ng-click="model.form.mealChoice='chicken'" class="col-sm-5 food-option" ng-class="{'highlight-border':model.form.mealChoice=='chicken'}">
                                                     <label style="font-weight: 900;">Chicken Saltimbocca</label>
                                                     <br>
                                                     <label style="font-size:.7em">French Chicken Breast with Prosciutto, Mozzarella & fresh Sage, Balsamic reduction</label>
                                                     <label style="font-size:.7em">Yukon Gold Mashed Potatoes & Seasonal Vegetable</label>
                                                 </div>
-                                                <div ng-click="guest.mealChoice='fish'" class="col-sm-5 food-option" ng-class="{'highlight-border':guest.mealChoice=='fish'}">
+                                                <div ng-click="model.form.mealChoice='fish'" class="col-sm-5 food-option" ng-class="{'highlight-border':model.form.mealChoice=='fish'}">
                                                     <label style="font-weight: 900;">Pan-Seared Salmon</label>
                                                     <br>
                                                     <label style="font-size:.7em">Prepared with Herb Butter</label>
@@ -266,17 +244,57 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group" ng-if="guest.isSpecialMeal">
+                                        <div class="form-group" ng-if="model.form.isSpecialMeal">
                                             <label for-next>Please describe the dietary restriction</label>
-                                            <textarea ng-model="guest.mealChoice" class="form-control "></textarea>
+                                            <textarea ng-model="model.form.mealChoice" class="form-control "></textarea>
                                         </div>
-                                    </div>
-                                    <div class="form-group" ng-if="model.form.guests.length<model.checkedInPerson.maxGuests">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <button type="button" style="float:right; color:black;" class="btn" ng-click="callback.addGuest()"><span class="fa fa-paper-plane"> &nbsp;</span>Add Guest</button>
+
+                                        <div ng-repeat="guest in model.form.guests" class="guest">
+                                            <div class="form-group">
+                                                <label for-next>Guest Name</label>
+                                                <input type="text" ng-model="guest.name" class="form-control " placeholder="Name"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for-next>Over 21?</label>
+                                                <input type="checkbox" ng-model="guest.isOver21"/>
+                                            </div>
+                                            <div class="form-group" ng-if="!guest.isOver21">
+                                                <label for-next>Age</label>
+                                                <input type="number" min="0" max="20" class="form-control " ng-model="guest.age"/>
+                                            </div>
+                                            <div class="form-group" ng-if="model.form.canAllowSpecialMeals">
+                                                <label for-next>Dietary Restrictions?</label>
+                                                <input type="checkbox" ng-model="guest.isSpecialMeal"/>
+                                            </div>
+                                            <div class="form-group" ng-if="!guest.isSpecialMeal">
+                                                <div class="row">
+                                                    <div ng-click="guest.mealChoice='chicken'" class="col-sm-5 food-option" ng-class="{'highlight-border':guest.mealChoice=='chicken'}">
+                                                        <label style="font-weight: 900;">Chicken Saltimbocca</label>
+                                                        <br>
+                                                        <label style="font-size:.7em">French Chicken Breast with Prosciutto, Mozzarella & fresh Sage, Balsamic reduction</label>
+                                                        <label style="font-size:.7em">Yukon Gold Mashed Potatoes & Seasonal Vegetable</label>
+                                                    </div>
+                                                    <div ng-click="guest.mealChoice='fish'" class="col-sm-5 food-option" ng-class="{'highlight-border':guest.mealChoice=='fish'}">
+                                                        <label style="font-weight: 900;">Pan-Seared Salmon</label>
+                                                        <br>
+                                                        <label style="font-size:.7em">Prepared with Herb Butter</label>
+                                                        <label style="font-size:.7em">Green Chile Cheddar Mashed Potatoes & Seasonal Vegetable</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-if="guest.isSpecialMeal">
+                                                <label for-next>Please describe the dietary restriction</label>
+                                                <textarea ng-model="guest.mealChoice" class="form-control "></textarea>
                                             </div>
                                         </div>
+                                        <div class="form-group" ng-if="model.form.guests.length<model.checkedInPerson.maxGuests">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <button type="button" style="float:right; color:black;" class="btn" ng-click="callback.addGuest()"><span class="fa fa-paper-plane"> &nbsp;</span>Add Guest</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                     <div class="form-group form-send">
@@ -310,7 +328,7 @@
             <footer id="footer">
                 <p class="footer-icon"><img src="img/ft-icon.png" alt=""></p>
 
-                <p class="quote-content">Roads... Where we're going we don't need.... Roads.</p>
+                <p class="quote-content">Roads? Where we're going we don't need.... Roads.</p>
 
                 <p class="quote-author"></p>
             </footer>
@@ -371,7 +389,6 @@
     var app = angular.module('rsvp', ['ui.bootstrap']).controller('rsvpCtrl', function ($scope, $http) {
 
 
-
                 $scope.model = {};
                 $scope.callback = {};
 
@@ -425,7 +442,8 @@
                             isSpecialMeal: ''
                         })
                     }
-                }
+                };
+
                 $scope.callback.people = function (name) {
                     if (name.indexOf(' ') == -1)return [];
                     var peopleIncluded = [];
@@ -482,47 +500,48 @@
                 $scope.callback.sendData = function () {
 
                     var form = $scope.model.form;
-                    var data = {
-                        "entry_1994697053": form.name,
-                        "entry_459008378": form.email,
-                        "entry_34587165": form.isOver21 ? 21 : form.age,
-                        "entry_902473048": form.guests.length,
-                        "entry_1156310692": form.message,
-                        "entry_1835854517": form.mealChoice,
-                        "entry_1580652951": form.isSpecialMeal
-                    };
+                    var data = {};
+                    data["entry_1994697053"]= form.name;
+                    data["entry_1156310692"]= form.message;
+                    data["entry_1835854517"] = "WILL NOT ATTEND";
 
-                    if (!form.mealChoice) {
-                        alert('Please provide a meal choice for all guests!');
-                        return;
-                    }
-                    var guestsData = [["entry_999456137", "entry_921924675", "entry_1712540209", "entry_1672535053"],
-                        ["entry_2067081381", "entry_673064164", "entry_561187202", "entry_1751832234"],
-                        ["entry_1266518407", "entry_1676517304", "entry_1125160263", "entry_1727931758"],
-                        ["entry_159860025", "entry_616627061", "entry_956429575", "entry_1512045628"],
-                        ["entry_2078637865", "entry_834376849", "entry_1087971573", "entry_152943583"],
-                        ["entry_1015946275", "entry_332838784", "entry_1044517730", "entry_1643832979"],
-                        ["entry_814818141", "entry_1433731039", "entry_2106957732", "entry_925947872"],
-                        ["entry_357908185", "entry_1658182727", "entry_372174035", "entry_115989196"]];
-
-                    for (var i = 0; i < form.guests.length; i++) {
-                        var guest = form.guests[i];
-
-                        var d = guestsData[i];
-                        if (!guest.name) {
-                            alert('Please provide a name for all guests!');
-                            return;
-                        }
-                        data[d[0]] = guest.name;
-                        data[d[1]] = guest.isOver21 ? 21 : guest.age;
-                        if (!guest.mealChoice) {
+                    if($scope.model.willAttend) {
+                        data["entry_1835854517"] = form.mealChoice;
+                        data["entry_459008378"] = form.email;
+                        data["entry_34587165"] = form.isOver21 ? 21 : form.age;
+                        data["entry_902473048"] = form.guests.length;
+                        data["entry_1580652951"] = form.isSpecialMeal;
+                        if (!form.mealChoice) {
                             alert('Please provide a meal choice for all guests!');
                             return;
                         }
-                        data[d[2]] = guest.mealChoice;
-                        data[d[3]] = guest.isSpecialMeal;
-                    }
+                        var guestsData = [["entry_999456137", "entry_921924675", "entry_1712540209", "entry_1672535053"],
+                            ["entry_2067081381", "entry_673064164", "entry_561187202", "entry_1751832234"],
+                            ["entry_1266518407", "entry_1676517304", "entry_1125160263", "entry_1727931758"],
+                            ["entry_159860025", "entry_616627061", "entry_956429575", "entry_1512045628"],
+                            ["entry_2078637865", "entry_834376849", "entry_1087971573", "entry_152943583"],
+                            ["entry_1015946275", "entry_332838784", "entry_1044517730", "entry_1643832979"],
+                            ["entry_814818141", "entry_1433731039", "entry_2106957732", "entry_925947872"],
+                            ["entry_357908185", "entry_1658182727", "entry_372174035", "entry_115989196"]];
 
+                        for (var i = 0; i < form.guests.length; i++) {
+                            var guest = form.guests[i];
+
+                            var d = guestsData[i];
+                            if (!guest.name) {
+                                alert('Please provide a name for all guests!');
+                                return;
+                            }
+                            data[d[0]] = guest.name;
+                            data[d[1]] = guest.isOver21 ? 21 : guest.age;
+                            if (!guest.mealChoice) {
+                                alert('Please provide a meal choice for all guests!');
+                                return;
+                            }
+                            data[d[2]] = guest.mealChoice;
+                            data[d[3]] = guest.isSpecialMeal;
+                        }
+                    }
                     $.ajax({
                         url: "https://docs.google.com/forms/d/1ClVC7MrEs0xmJFDFc3PJ7amr7TyoGb3ZYQc0BM1nTHU/formResponse",
                         data: data,

@@ -40,7 +40,7 @@ $(window).load(function(){
 //==== Run on Document Ready ========
 $(document).ready(function(){
 //=====>  Countdown (Edit this with your own date)  <====
-$("#countdown").countdown(new Date(2015,9,21,16,29), function(event) {
+$("#countdown").countdown(new Date(Date.parse("Wed, 21 Oct 2015 23:29:00 GMT")), function(event) {
   var $this = $(this).html(event.strftime(''
      + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %-D </span> Days </div></div> '
      + '<div class="countdown-col-wrapper col-xs-3"><div class="countdown-col"><span class="countdown-time"> %H </span> Hours </div></div>'
