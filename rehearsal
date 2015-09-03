@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="rsvp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Salvatore & Anastasia</title>
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
+    <link rel="icon" href="favicon2.ico" type="image/x-icon">
+    <!-- / Favicons
+    ================================================== -->
+
+    <!-- >> CSS
+    ============================================================================== -->
+    <!-- google web fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- /google web fonts -->
+    <!-- bootstrap -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- nivo lightbox -->
+    <link href="vendor/nivo-lightbox/nivo-lightbox.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/nivo-lightbox/themes/default/default.css" type="text/css"/>
+    <!-- animate -->
+    <link href="vendor/animate.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- main styles -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- >> /CSS
+    ============================================================================== -->
+</head>
+<body>
+
+<!-- Page Loader
+========================================================= -->
+<div class="loader" id="page-loader">
+    <div class="loading-wrapper">
+        <div class="loader-heart loader-heart1"><img src="img/intro-heart.png" alt=""></div>
+        <div class="loader-heart loader-heart2"><img src="img/intro-heart.png" alt=""></div>
+        <div class="loader-heart loader-heart3"><img src="img/intro-heart.png" alt=""></div>
+    </div>
+</div>
+<!-- /End of Page loader
+========================================================= -->
+
+<!-- === PAGE BACKGROUND === -->
+<!-- Background container -->
+<div class="page-background-container viewport">
+    <!-- background-mask -->
+    <div class="bg-mask viewport"></div>
+    <!-- /background-mask -->
+    <!-- background-slideshow -->
+    <div class="bg-slideshow">
+        <!-- slideshow-item -->
+        <div class="page-background viewport" style="background-image: url('img/slide-bg1.jpg')"></div>
+        <!-- /slideshow-item -->
+    </div>
+    <!--/Background-slideshow -->
+</div>
+<!-- Background-container -->
+<!-- === /PAGE BACKGROUND === -->
+
+<!-- Main Content
+================================================== -->
+<div id="body" class="viewport animated">
+    <div class="container">
+        <div class="boxed-content">
+            <!-- Header -->
+            <header id="header" class="navbar navbar-default navbar-static-top">
+                <div class="clearfix">
+                    <!-- logo -->
+                    <div class="hd-logo">
+                        <a href="index.html"><img src="img/logo.png" title="" alt=""></a>
+                    </div>
+                    <!-- /logo -->
+                    <!-- responsive menu -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Navigation Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- /responsive menu -->
+                    <!-- menu -->
+                    <nav class="hd-nav nav navbar-nav navbar-right navbar-collapse collapse">
+                        <ul class="nav navbar-nav hd-list-menu clearfix">
+                            <li>
+                                <a href="about.html">
+                                    <span class="link-title">About</span>
+                                    <span class="link-subtitle">our history</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="gallery.html">
+                                    <span class="link-title">Gallery</span>
+                                    <span class="link-subtitle">Our pictures</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ceremony.html">
+                                    <span class="link-title">Ceremony</span>
+                                    <span class="link-subtitle">All information</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="rsvp.html">
+                                    <span class="link-title">RSVP</span>
+                                    <span class="link-subtitle">Events Attending</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="page-registry.html">
+                                    <span class="link-title">Registry</span>
+                                    <span class="link-subtitle">Our Gift List</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /menu -->
+                </div>
+            </header>
+            <!-- /header -->
+            <!-- content -->
+            <div class="page-content">
+
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <!-- page title -->
+                        <h2 class="title1 couple-title1 title1-border">Rsvp</h2>
+                        <!-- /page title -->
+                        <div class="row">
+                            <!-- RSVP -->
+                            <div class="col-sm-4 rsvp-text">
+                                <h3 class="title4">Please fill our Rehearsal Dinner RSVP Form</h3>
+
+                                <p>Kindly respond by Oct 1st, 2015. We look forward to celebrating with you!</p>
+
+                                <p>If you have any questions feel free to <a href="mailto:anasalwedding2015@gmail.com" style="font-weight:900;">email us</a>!</p>
+                            </div>
+                            <div class="col-sm-8" ng-controller="rsvpCtrl">
+
+                                <!-- Contact Form -->
+                                <div id="contactForm" ng-if="model.step==1">
+                                    <!-- Form Field -->
+                                    <div class="form-group">
+                                        <label for-next>Your Full Name</label>
+                                        <input type="text" ng-model="model.checkedInPerson" typeahead="people.person as people.name for people in callback.people($viewValue) | limitTo:8" class="form-control required" placeholder="Name"/>
+                                    </div>
+
+                                    <div class="form-group form-send">
+                                        <button type="button" value="" ng-disabled="!model.checkedInPerson" class="btn btn-1c" ng-click="callback.beginCheckIn()"><span class="fa fa-paper-plane"> &nbsp;</span>Begin Check In</button>
+                                        <!--<input type="submit" value="Send" class="btn btn-1c"/>-->
+                                    </div>
+                                </div>
+                                <div id="contactForm" ng-if="model.step==3">
+                                    <!-- Form Field -->
+                                    <div class="form-group">
+                                        <label>Thank you for RSVPing for our wedding. We look forward to seeing you!</label>
+                                    </div>
+                                </div>
+                                <style>
+                                    .food-option {
+                                        cursor: pointer;
+                                        border: solid 4px #5c453f;
+                                        height: 120px;
+                                        margin: 20px;
+                                        text-align: center;
+                                        background-color: #5c453f;
+                                    }
+
+                                    .food-option label:first-child {
+                                        font-size: 1.3em;
+                                    }
+
+                                    .highlight-border {
+                                        border: 4px solid gold;
+                                    }
+
+                                    .guest {
+                                        border: #CCCCCC solid 4px;
+                                        padding: 20px;
+                                        margin: 20px;
+                                    }
+                                </style>
+                                <div id="contactForm" ng-if="model.step==2">
+
+                                    <div class="form-group">
+                                        <label for-next>Name</label>
+                                        <input type="text" disabled ng-model="model.form.name" class="form-control " placeholder="Name"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for-next>Your Email</label>
+                                        <input type="text" ng-model="model.form.email" class="form-control " placeholder="Email"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for-next>Over 21?</label>
+                                        <input type="checkbox" ng-model="model.form.isOver21"/>
+                                    </div>
+                                    <div class="form-group" ng-if="!model.form.isOver21">
+                                        <label for-next>Age</label>
+                                        <input type="number" min="0" max="20" class="form-control " ng-model="model.form.age" placeholder="Age"/>
+                                    </div>
+                                    <div class="form-group" ng-if="model.form.canAllowSpecialMeals">
+                                        <label for-next>Dietary Restrictions?</label>
+                                        <input type="checkbox" ng-model="model.form.isSpecialMeal"/>
+                                    </div>
+                                    <div class="form-group" ng-if="!model.form.isSpecialMeal">
+                                        <div class="row">
+                                            <div ng-click="model.form.mealChoice='chicken'" class="col-sm-5 food-option" ng-class="{'highlight-border':model.form.mealChoice=='chicken'}">
+                                                <label style="font-weight: 900;">Chicken Saltimbocca</label>
+                                                <br>
+                                                <label style="font-size:.7em">French Chicken Breast with Prosciutto, Mozzarella & fresh Sage, Balsamic reduction</label>
+                                                <label style="font-size:.7em">Yukon Gold Mashed Potatoes & Seasonal Vegetable</label>
+                                            </div>
+                                            <div ng-click="model.form.mealChoice='fish'" class="col-sm-5 food-option" ng-class="{'highlight-border':model.form.mealChoice=='fish'}">
+                                                <label style="font-weight: 900;">Pan-Seared Salmon</label>
+                                                <br>
+                                                <label style="font-size:.7em">Prepared with Herb Butter</label>
+                                                <label style="font-size:.7em">Green Chile Cheddar Mashed Potatoes & Seasonal Vegetable</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-if="model.form.isSpecialMeal">
+                                        <label for-next>Please describe the dietary restriction</label>
+                                        <textarea ng-model="model.form.mealChoice" class="form-control "></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for-next>Message to us! (optional)</label>
+                                        <textarea class="form-control" ng-model="model.form.message" placeholder="Message"></textarea>
+                                    </div>
+
+                                    <div ng-repeat="guest in model.form.guests" class="guest">
+                                        <div class="form-group">
+                                            <label for-next>Guest Name</label>
+                                            <input type="text" ng-model="guest.name" class="form-control " placeholder="Name"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for-next>Over 21?</label>
+                                            <input type="checkbox" ng-model="guest.isOver21"/>
+                                        </div>
+                                        <div class="form-group" ng-if="!guest.isOver21">
+                                            <label for-next>Age</label>
+                                            <input type="number" min="0" max="20" class="form-control " ng-model="guest.age"/>
+                                        </div>
+                                        <div class="form-group" ng-if="model.form.canAllowSpecialMeals">
+                                            <label for-next>Dietary Restrictions?</label>
+                                            <input type="checkbox" ng-model="guest.isSpecialMeal"/>
+                                        </div>
+                                        <div class="form-group" ng-if="!guest.isSpecialMeal">
+                                            <div class="row">
+                                                <div ng-click="guest.mealChoice='chicken'" class="col-sm-5 food-option" ng-class="{'highlight-border':guest.mealChoice=='chicken'}">
+                                                    <label style="font-weight: 900;">Chicken Saltimbocca</label>
+                                                    <br>
+                                                    <label style="font-size:.7em">French Chicken Breast with Prosciutto, Mozzarella & fresh Sage, Balsamic reduction</label>
+                                                    <label style="font-size:.7em">Yukon Gold Mashed Potatoes & Seasonal Vegetable</label>
+                                                </div>
+                                                <div ng-click="guest.mealChoice='fish'" class="col-sm-5 food-option" ng-class="{'highlight-border':guest.mealChoice=='fish'}">
+                                                    <label style="font-weight: 900;">Pan-Seared Salmon</label>
+                                                    <br>
+                                                    <label style="font-size:.7em">Prepared with Herb Butter</label>
+                                                    <label style="font-size:.7em">Green Chile Cheddar Mashed Potatoes & Seasonal Vegetable</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-if="guest.isSpecialMeal">
+                                            <label for-next>Please describe the dietary restriction</label>
+                                            <textarea ng-model="guest.mealChoice" class="form-control "></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-if="model.form.guests.length<model.checkedInPerson.maxGuests">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button type="button" style="float:right; color:black;" class="btn" ng-click="callback.addGuest()"><span class="fa fa-paper-plane"> &nbsp;</span>Add Guest</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-send">
+                                        <button type="button" value="" class="btn btn-1c" ng-click="callback.sendData()"><span class="fa fa-paper-plane"> &nbsp;</span>Finish RSVP!</button>
+                                    </div>
+                                </div>
+
+
+                                <!-- / Contact form -->
+                                <!-- Form - Success Message -->
+                                <div id="contactSuccess" class="contact-feedback">Your message has been sent!</div>
+                                <!-- /Form - Sucess Message -->
+                                <!-- Form - Error Message -->
+                                <div id="contactError" class="contact-feedback">Error</div>
+                                <!-- /form - Error Message -->
+
+                                <div class="form">
+                                </div>
+                                <div class="wait">Sending...</div>
+                                <div class="error">A error ocurred..</div>
+                                <div class="success">Your message has been sent!</div>
+                            </div>
+                            <!-- /RSVP -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /content -->
+            <!-- footer -->
+            <footer id="footer">
+                <p class="footer-icon"><img src="img/ft-icon.png" alt=""></p>
+
+                <p class="quote-content">Roads? Where we're going we don't need.... Roads.</p>
+
+                <p class="quote-author"></p>
+            </footer>
+            <!-- /footer -->
+        </div>
+    </div>
+</div>
+<!-- /Main Content
+================================================== -->
+
+
+<!-- >> JS
+============================================================================== -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="vendor/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Validate -->
+<script src="vendor/validate.js"></script>
+<!-- Countdown -->
+<script src="vendor/jquery.countdown.min.js"></script>
+<!-- Mansonry -->
+<script src="vendor/imagesloaded.pkgd.min.js"></script>
+<script src="vendor/masonry.pkgd.min.js"></script>
+<!-- Modal box-->
+<script src="vendor/nivo-lightbox/nivo-lightbox.min.js"></script>
+<!-- Cycle -->
+<script src="vendor/cycle2.js"></script>
+<!-- SmoothScroll -->
+<script src="vendor/smoothScroll.js"></script>
+<!-- Placeholder for IE -->
+<script src="vendor/placeholders.jquery.min.js"></script>
+<!-- Crossbrowser -->
+<script src="js/cross-browser.js"></script>
+<!-- Main Config -->
+<script src="js/main.js"></script>
+<!-- Holder -->
+<script src="vendor/holder.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="vendor/html5shiv.js"></script>
+<script src="vendor/respond.min.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="vendor/angular-bootstrap.js"></script>
+<script type="text/javascript">
+    var people = [{
+        name: 'mar Crabtree',
+        alternativeNames: ['mike beck','steve joes'],
+        age: 21,
+        email: '',
+        maxGuests: 10,
+        message: '',
+        canAllowSpecialMeals: true,
+        mealChoice: '',
+        isSpecialMeal: false,
+        guests: [
+            {
+                name: 'chri Crabtree',
+                alternativeNames: [],
+                age: 21,
+                mealChoice: '',
+                isSpecialMeal: false,
+            },
+        ]
+    }];
+
+
+    var app = angular.module('rsvp', ['ui.bootstrap']).controller('rsvpCtrl', function ($scope, $http) {
+                $scope.model = {};
+                $scope.callback = {};
+
+                $scope.model.checkedInPerson = null;
+                $scope.model.step = 1;
+                $scope.callback.beginCheckIn = function () {
+
+                    if ($scope.model.checkedInPerson.length > 0) {
+                        console.log('custom');
+                        $scope.model.checkedInPerson = {};
+                    }
+
+                    $scope.model.step = 2;
+                    var form = $scope.model.form = {};
+
+                    var person = $scope.model.checkedInPerson;
+
+                    form.name = person.name;
+                    form.email = person.email;
+                    form.age = 20;
+                    form.isOver21 = person.age >= 21;
+                    form.maxGuests = person.maxGuests;
+                    form.message = person.message;
+                    form.canAllowSpecialMeals = person.canAllowSpecialMeals;
+                    form.mealChoice = person.mealChoice;
+                    form.isSpecialMeal = person.isSpecialMeal;
+                    form.guests = [];
+
+                    for (var i = 0; i < person.guests.length; i++) {
+                        var guest = person.guests[i];
+                        form.guests.push({
+                            name: guest.name,
+                            age: 20,
+                            isOver21: guest.age >= 21,
+                            mealChoice: guest.mealChoice,
+                            isSpecialMeal: guest.isSpecialMeal
+                        })
+                    }
+
+
+                };
+                $scope.callback.addGuest = function () {
+                    if ($scope.model.form.guests.length < $scope.model.checkedInPerson.maxGuests) {
+                        $scope.model.form.guests.push({
+                            name: '',
+                            age: 20,
+                            isOver21: true,
+                            mealChoice: '',
+                            isSpecialMeal: ''
+                        })
+                    }
+                }
+                $scope.callback.people = function (name) {
+                    if (name.indexOf(' ') == -1)return [];
+                    var peopleIncluded = [];
+                    name = name.toLowerCase();
+                    for (var i = 0; i < people.length; i++) {
+                        var person = people[i];
+                        var found = false;
+                        var foundName = '';
+
+                        if (person.name.toLowerCase().indexOf(name) >= 0) {
+                            found = true;
+                            foundName = person.name;
+                        } else {
+                            for (var a = 0; a < person.alternativeNames.length; a++) {
+                                var alt = person.alternativeNames[a];
+                                if (alt.toLowerCase().indexOf(name) >= 0) {
+                                    found = true;
+                                    foundName = alt;
+                                }
+                            }
+                        }
+
+                        if (!found) {
+                            for (var c = 0; c < person.guests.length; c++) {
+                                var guest = person.guests[c];
+
+                                if (guest.name.toLowerCase().indexOf(name) >= 0) {
+                                    found = true;
+                                    foundName = guest.name;
+                                } else {
+                                    for (var a = 0; a < guest.alternativeNames.length; a++) {
+                                        var alt = guest.alternativeNames[a];
+                                        if (alt.toLowerCase().indexOf(name) >= 0) {
+                                            found = true;
+                                            foundName = alt;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (found) {
+                            peopleIncluded.push({name: person.name + " And Guests", person: person});
+                        }
+
+                    }
+
+
+                    return peopleIncluded;
+                }
+                ;
+                $scope.callback.sendData = function () {
+
+                    var form = $scope.model.form;
+                    var data = {
+                        "entry_1994697053": form.name,
+                        "entry_459008378": form.email,
+                        "entry_34587165": form.isOver21 ? 21 : form.age,
+                        "entry_902473048": form.guests.length,
+                        "entry_1156310692": form.message,
+                        "entry_1835854517": form.mealChoice,
+                        "entry_1580652951": form.isSpecialMeal,
+                    };
+
+                    if (!form.mealChoice) {
+                        alert('Please provide a meal choice for all guests!');
+                        return;
+                    }
+                    var guestsData = [["entry_999456137", "entry_921924675", "entry_1712540209", "entry_1672535053"],
+                        ["entry_2067081381", "entry_673064164", "entry_561187202", "entry_1751832234"],
+                        ["entry_1266518407", "entry_1676517304", "entry_1125160263", "entry_1727931758"],
+                        ["entry_159860025", "entry_616627061", "entry_956429575", "entry_1512045628"],
+                        ["entry_2078637865", "entry_834376849", "entry_1087971573", "entry_152943583"],
+                        ["entry_1015946275", "entry_332838784", "entry_1044517730", "entry_1643832979"],
+                        ["entry_814818141", "entry_1433731039", "entry_2106957732", "entry_925947872"],
+                        ["entry_357908185", "entry_1658182727", "entry_372174035", "entry_115989196"]];
+
+                    for (var i = 0; i < form.guests.length; i++) {
+                        var guest = form.guests[i];
+
+                        var d = guestsData[i];
+                        if (!guest.name) {
+                            alert('Please provide a name for all guests!');
+                            return;
+                        }
+                        data[d[0]] = guest.name;
+                        data[d[1]] = guest.isOver21 ? 21 : guest.age;
+                        if (!guest.mealChoice) {
+                            alert('Please provide a meal choice for all guests!');
+                            return;
+                        }
+                        data[d[2]] = guest.mealChoice;
+                        data[d[3]] = guest.isSpecialMeal;
+                    }
+
+                    $.ajax({
+                        url: "https://docs.google.com/forms/d/1ClVC7MrEs0xmJFDFc3PJ7amr7TyoGb3ZYQc0BM1nTHU/formResponse",
+                        data: data,
+                        type: "POST",
+                        dataType: "xml",
+                    }).always(function () {
+                        $scope.model.step=3;
+                        $scope.$apply();
+                    })
+                };
+
+                /*https://docs.google.com/forms/d/1ClVC7MrEs0xmJFDFc3PJ7amr7TyoGb3ZYQc0BM1nTHU/formResponse
+
+
+
+                 */
+            }
+    ).
+            directive('forNext', function () {
+                return {
+                    link: function (s, e, a) {
+                        var rand = 'name' + Math.random() * 100000;
+                        e.attr('for', rand);
+                        e.next().attr('id', rand);
+                    }
+                };
+            })
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-66875562-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!-- >> /JS
+============================================================================= -->
+</body>
+</html>
