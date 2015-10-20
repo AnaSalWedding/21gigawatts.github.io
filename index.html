@@ -274,7 +274,7 @@
     var app = angular.module('home', []).controller('homeCtrl', function ($scope) {
         var weddingDate = new Date(Date.parse("Wed, 21 Oct 2015 23:19:00 GMT"));
         var dayAfterWedding = new Date(Date.parse("Wed, 22 Oct 2015 08:00:00 GMT"));
-        $scope.happening = 'before';
+        $scope.happening = 'wedding';
 
         if (new Date() > weddingDate) {
             $scope.happening = 'wedding';
